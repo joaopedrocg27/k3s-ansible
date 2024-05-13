@@ -11,19 +11,19 @@ jobs:
 
     steps:
       - name: Check out the codebase
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # 4.1.2
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # 4.1.5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # 5.0.0
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # 5.1.0
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip' # caching pip dependencies
 
       - name: Cache Vagrant boxes
         id: cache-vagrant
-        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # 4.0
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # 4.0
         with:
           lookup-only: true #if it exists, we don't need to restore and can skip the next step
           path: |
